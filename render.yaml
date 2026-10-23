@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: client-lookup-system
+    runtime: docker
+    plan: starter
+    healthCheckPath: /healthz
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: INITIAL_ADMIN_PASSWORD
+        sync: false
+    disk:
+      name: client-data
+      mountPath: /data
+      sizeGB: 1
